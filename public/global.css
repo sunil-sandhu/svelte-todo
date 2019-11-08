@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+  background: linear-gradient(#dcaeff, #ff6a3d);
+  height: auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 60%;
+  padding: 10px;
+  font-size: 1em;
+  margin: 10px auto;
+  box-shadow: 1px 3px 20px 0px rgba(0, 0, 0, 0.3);
+}

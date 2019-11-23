@@ -1,11 +1,14 @@
 <script>
   import ToDoItem from "./ToDoItem.svelte";
 
-  export let todo = "";
-  export let list = [
+
+  let todo = "";
+  let list = [
     { id: 1, text: "clean the house" },
     { id: 2, text: "buy milk" }
   ];
+
+
 
   const Logo = "../assets/logo.png";
 
@@ -83,7 +86,7 @@
   <div class="ToDo-Container">
     <div class="ToDo-Content">
       {#each list as item, i (item.id)}
-        <ToDoItem {item} deleteItem={deleteItem} />
+        <ToDoItem {item} on:deleteItem={deleteItem} />
       {/each}
     </div>
     <input type="text" bind:value={todo} />

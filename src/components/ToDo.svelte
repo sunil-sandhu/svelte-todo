@@ -23,7 +23,8 @@
     todo = "";
   };
 
-  const deleteItem = id => {
+  const deleteItem = event => {
+    const { id } = event.detail;
     list = list.filter(item => item.id !== id);
   };
 </script>
@@ -83,7 +84,7 @@
   <div class="ToDo-Container">
     <div class="ToDo-Content">
       {#each list as item, i (item.id)}
-        <ToDoItem {item} deleteItem={deleteItem} />
+        <ToDoItem {item} on:deleteItem={deleteItem} />
       {/each}
     </div>
     <input type="text" bind:value={todo} />

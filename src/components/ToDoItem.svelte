@@ -2,8 +2,12 @@
   import { createEventDispatcher } from "svelte";
 
   export let item;
-  export let deleteItem;
 
+  const dispatch = createEventDispatcher();
+
+  const handleDelete = id => {
+    dispatch("deleteItem", { id });
+  };
 </script>
 
 <style>
@@ -41,7 +45,7 @@
 
 <div class="ToDoItem">
   <p class="ToDoItem-Text">{item.text}</p>
-  <button class="ToDoItem-Delete" on:click={() => deleteItem(item.id)}>
+  <button class="ToDoItem-Delete" on:click={() => handleDelete(item.id)}>
     -
   </button>
 </div>

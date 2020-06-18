@@ -1,11 +1,10 @@
 <script>
-  import { createEventDispatcher } from "svelte";
-
   export let item;
   export let deleteItem;
 </script>
 
-<style>
+<style>  
+
   .ToDoItem {
     display: flex;
     justify-content: center;
@@ -36,11 +35,13 @@
     margin-top: 1px;
     margin-left: 1px;
   }
+
 </style>
 
 <div class="ToDoItem">
   <p class="ToDoItem-Text">{item.text}</p>
-  <button class="ToDoItem-Delete" on:click={() => deleteItem(item.id)}>
+  <button class="ToDoItem-Delete" 
+          on:click={() => deleteItem(item.id)}>
     -
   </button>
 </div>

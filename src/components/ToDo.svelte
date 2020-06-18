@@ -19,7 +19,7 @@
     const newId = list.length
       ? Math.max.apply(null, list.map(t => t.id)) + 1
       : 1;
-    list.push({ id: newId, text: todo });
+    list = [...list, { id: newId, text: todo }]
     todo = "";
   };
 

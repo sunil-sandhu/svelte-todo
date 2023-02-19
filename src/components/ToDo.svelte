@@ -86,7 +86,7 @@
   <div class="ToDo-Container">
     <div class="ToDo-Content">
       {#each list as item, i (item.id)}
-        <ToDoItem {item} on:deleteItem={deleteItem} />
+        <ToDoItem {item} {deleteItem} />
       {/each}
     </div>
     <input type="text" bind:value={todo} />

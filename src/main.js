@@ -1,11 +1,12 @@
 import App from "./App.svelte";
+import list from "./components/ToDo.svelte";
 
 const app = new App({
   target: document.body,
   props: {
-    list: [{ id: 1, text: "clean the house" }, { id: 2, text: "buy milk" }],
-    todo: ""
-  }
+    list,
+    todo: "",
+  },
 });
 
 export default app;

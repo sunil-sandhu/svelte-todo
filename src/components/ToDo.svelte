@@ -1,14 +1,11 @@
 <script>
   import ToDoItem from "./ToDoItem.svelte";
 
-
   let todo = "";
   let list = [
     { id: 1, text: "clean the house" },
-    { id: 2, text: "buy milk" }
+    { id: 2, text: "buy milk" },
   ];
-
-
 
   const Logo = "../assets/logo.png";
 
@@ -20,16 +17,33 @@
     }
 
     const newId = list.length
-      ? Math.max.apply(null, list.map(t => t.id)) + 1
+      ? Math.max.apply(
+          null,
+          list.map((t) => t.id)
+        ) + 1
       : 1;
     list = [...list, { id: newId, text: todo }];
     todo = "";
   };
 
-  const deleteItem = id => {
-    list = list.filter(item => item.id !== id);
+  const deleteItem = (id) => {
+    list = list.filter((item) => item.id !== id);
   };
 </script>
+
+<div class="ToDo">
+  <img class="Logo" src={Logo} alt="Svelte logo" />
+  <h1 class="ToDo-Header">Svelte To Do</h1>
+  <div class="ToDo-Container">
+    <div class="ToDo-Content">
+      {#each list as item, i (item.id)}
+        <ToDoItem {item} deleteItem={deleteItem} />
+      {/each}
+    </div>
+    <input type="text" bind:value={todo} />
+    <button class="ToDo-Add" on:click={createNewToDoItem}>+</button>
+  </div>
+</div>
 
 <style>
   .Logo {
@@ -79,17 +93,3 @@
     margin: 0 auto;
   }
 </style>
-
-<div class="ToDo">
-  <img class="Logo" src={Logo} alt="Svelte logo" />
-  <h1 class="ToDo-Header">Svelte To Do</h1>
-  <div class="ToDo-Container">
-    <div class="ToDo-Content">
-      {#each list as item, i (item.id)}
-        <ToDoItem {item} on:deleteItem={deleteItem} />
-      {/each}
-    </div>
-    <input type="text" bind:value={todo} />
-    <button class="ToDo-Add" on:click={createNewToDoItem}>+</button>
-  </div>
-</div>
